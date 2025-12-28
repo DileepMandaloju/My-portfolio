@@ -34,10 +34,40 @@ nav {
 .nav-toggle {
   display: none;
   font-size: 22px;
+  width: 28px;
+  height: 22px;
   background: none;
+  position: relative;
   border: none;
   color: var(--text);
   cursor: pointer;
+}
+
+.nav-toggle span {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: var(--text);
+  left: 0;
+  transition: 0.35s ease;
+  border-radius: 2px;
+}
+
+.nav-toggle span:nth-child(1) { top: 0; }
+.nav-toggle span:nth-child(2) { top: 9px; }
+.nav-toggle span:nth-child(3) { top: 18px; }
+
+
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 9px;
+}
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 9px;
 }
 
 .nav-container {
@@ -275,32 +305,47 @@ footer {
   .exp-header { text-align: center; }
   #certifications { padding: 64px 16px; }
 }
-/* Mobile behavior */
+
+
+/* Mobile Menu */
 @media (max-width: 768px) {
-  .nav-toggle {
-    display: block;
-  }
+  .nav-toggle { display: block; }
 
   .nav-links {
     position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
+    top: 64px;
+    left: 12px;
+    right: 12px;
     background: rgba(2,6,23,0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid #1e293b;
-    display: none;
+    backdrop-filter: blur(14px);
+    border: 1px solid #1e293b;
+    border-radius: 14px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 12px 0;
+    padding: 16px 0;
+    opacity: 0;
+    transform: translateY(-20px) scale(0.96);
+    pointer-events: none;
+    transition: 0.35s ease;
+  }
+
+  .nav-links.open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
   }
 
   .nav-links a {
     margin: 12px 0;
     font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: 0.25s ease;
   }
 
-  .nav-links.open {
-    display: flex;
+  .nav-links a:hover {
+    background: rgba(255,255,255,0.05);
   }
 }
