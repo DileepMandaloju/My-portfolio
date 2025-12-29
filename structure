@@ -1,0 +1,31 @@
+portfolio/
+│
+├── index.html
+├── heart-disease.html
+├── student-performance.html
+│
+├── css/
+│   ├── style.css
+│   ├── heart-disease.css
+│   └── student-performance.css
+│
+├── assets/
+│   ├─── heart/
+│   │ 	├── 1.png
+│   │		├── 2.png
+│   │		└── 3.png    
+│   ├─── student/
+│   │		├── 1.png
+│   │		├── 2.png
+│   │		└── 3.png
+│   │	
+│   └─── dileep-resume.pdf
+│	
+├── js/
+│   ├── main.js
+│   ├── heart-disease.js
+│   └── student-performance.js
+│
+├── structure
+│
+└── README
